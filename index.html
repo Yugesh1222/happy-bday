@@ -865,6 +865,11 @@ html{
     background:white;
     cursor:pointer;
 }
+.dropText{
+    opacity:0;
+    transform:translateY(-120px) scale(0.8);
+    filter:blur(8px);
+}   
 
 </style>
 </head>
@@ -924,18 +929,26 @@ html{
     </div>
   
 </section>
+
 <section id="memories">
     <div class="container">
        <h1>Good Times🤞🏻</h1>
-<p>There are memories that don’t fade 🌙</p>
-<p>Not because I hold onto them… 🤍</p>
-<p>But because they were real ✨</p>
-<p>Sometimes they pass through my mind quietly 💭</p>
-<p>And I just smile 🙂</p>
-<p>That’s enough for me 🫶🏻</p>
-<p>Just memory🫶🏻.</p>
-  <img src="stricker5.png" class="sectionSticker">
-  <button onclick="scrollToSection('us')">Next✨</button>
+      <p class="dropText">Last year around this time 🎂</p>
+<p class="dropText">I remember,ur 18th bday and  gifts in my own slightly dramatic way 😅✨</p>
+
+       <p   class="dropText">Eighteen little gifts. </p>
+       <p class="dropText">Some of them were probably a little cringe now that I think about it 🙈</p>
+
+<p class="dropText">There are memories that don’t fade 🌙</p>
+<p class="dropText">Not because I hold onto them… 🤍</p>
+<p class="dropText">But because they were real ✨</p>
+<p class="dropText">Sometimes they pass through my mind quietly 💭</p>
+<p class="dropText">And I just smile 🙂
+</p>
+<p class="dropText">That’s enough for me 🫶🏻</p>
+<p class="dropText">Just memory🫶🏻.</p>
+ <img src="stricker 1.png" class="sectionSticker">
+<button onclick="scrollToSection('us')">Next✨</button>
     </div>
 </section>
 
@@ -987,20 +1000,7 @@ html{
     </div>
 </section>
 
-<section id="growth">
-    <div class="container">
-       <h1>After us🚻</h1>
-<p>Not everything is meant to stay forever.</p>
-<p>Some people come into our lives</p>
-<p>not to remain… but to change us.</p>
-<p>You changed something in me.</p>
-<p>And I’ll always be quietly grateful for that 🌙</p>
-<p>No bitterness. No regret.</p>
-<p>Just respect… and a soft corner that will always exist 💗</p>
- <img src="stricker 4.png" class="sectionSticker">
-<button onclick="scrollToSection('final')">Last👀</button>
-    </div>
-</section>
+
 <section id="final">
     <div class="container">
         <h1>One Last Thing 🤍</h1>
@@ -1089,7 +1089,7 @@ Un sirippu dhaan enakku background tone.
 Andha Saturday propose panna plan,
 Heart la ready aana love-u than,
 Aana words ellam freeze aayiduchu,
-Un munadi naan silent aayiduchu...[2]
+Un munadi naan silent aayiduchu.
 
 <br><br>
 Andha Saturday pogala marandhu,
@@ -1391,6 +1391,25 @@ function closeUsVideo(){
 
     bgMusic.play().catch(()=>{});
 }
+window.addEventListener("scroll", function(){
+
+    const dropTexts = document.querySelectorAll("#memories .dropText");
+
+    dropTexts.forEach((el, index) => {
+        const position = el.getBoundingClientRect().top;
+        const screenHeight = window.innerHeight;
+
+        if(position < screenHeight - 100){
+            setTimeout(() => {
+                el.style.transition = "all 0.8s ease";
+                el.style.opacity = "1";
+                el.style.transform = "translateY(0) scale(1)";
+                el.style.filter = "blur(0px)";
+            }, index * 200);
+        }
+    });
+
+});
 </script>
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
