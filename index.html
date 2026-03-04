@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Quiet Wish</title>
+
+<style>
+/* ========================= */
+/* 📱 Mobile Optimization    */
+/* ========================= */
+@media (max-width: 600px){
+    section{
+        height:auto;
+        min-height:100vh;
+        padding:20px 0;
+    }
+
+    h1{
+        font-size:20px;
+        margin-bottom:15px;
+    }
+
+    p{
+        font-size:13px;
+        margin:8px 0;
+    }
+
+    .container{
+        width:95%;
+        padding:20px;
+        border-radius:20px;
+        margin:0 auto;
+    }
+
+    .lyrics-content{
+        max-height:250px;
+        font-size:13px;
+    }
+
+    button{
+        font-size:14px;
+        padding:10px 22px;
+        margin-top:15px;
+    }
+
+    .sectionSticker{
+        width:50px;
+        bottom:10px;
+        right:10px;
+    }
+
+    .us-grid{
+        grid-template-columns: repeat(3, 1fr);
+        gap:8px;
+        margin-top:15px;
+    }
+
+    .us-grid video{
+        height:100px;
+    }
+
+    .video-label{
+        font-size:11px;
+        margin-top:2px;
+    }
+
+    .feedback-box{
+        margin-top:15px;
+    }
+
+    .question{
+        margin-bottom:8px;
+        font-size:13px;
+    }
+
+    .options label{
+        display:inline-block;
+        margin:8px 10px;
+        font-size:13px;
+    }
+
+    .thank-box{
+        width:90%;
+        padding:25px 20px;
+    }
+
+    .thank-box h2{
+        font-size:18px;
+        margin-bottom:10px;
+    }
+
+    .thank-box p{
+        font-size:13px;
+        margin:6px 0;
+    }
+}
+
+
+/* ========================= */
+/* 💻 Desktop Optimization   */
+/* ========================= */
+@media (min-width: 900px){
+    section{
+        height:100vh;
+        padding:0;
+    }
+
+    h1{
+        font-size:28px;
+        margin-bottom:20px;
+    }
+
+    p{
+        font-size:16px;
+        margin:10px 0;
+    }
+
+    .container{
+        width:90%;
+        max-width:900px;
+        padding:60px;
+        border-radius:25px;
+    }
+
+    .lyrics-content{
+        max-height:400px;
+        font-size:16px;
+    }
+
+    button{
+        font-size:16px;
+        padding:14px 32px;
+        margin-top:25px;
+    }
+
+    .sectionSticker{
+        width:90px;
+        bottom:15px;
+        right:15px;
+    }
+
+    .us-grid{
+        grid-template-columns: repeat(3, 1fr);
+        gap:12px;
+        margin-top:20px;
+    }
+
+    .us-grid video{
+        height:150px;
+    }
+
+    .video-label{
+        font-size:12px;
+        margin-top:8px;
+    }
+
+    .lyrics-box{
+        max-width:500px;
+        padding:30px;
+    }
+
+    .thank-box{
+        width:85%;
+        max-width:400px;
+        padding:35px 30px;
+    }
+
+    .feedback-box{
+        margin-top:20px;
+    }
+
+    .options label{
+        margin:10px 15px;
+        font-size:14px;
+    }
+}
+
+/* ========================= */
+/* 📱 Tablet Optimization    */
+/* ========================= */
+@media (min-width: 600px) and (max-width: 900px){
+    section{
+        height:auto;
+        min-height:auto;
+        padding:30px 0;
+    }
+
+    h1{
+        font-size:24px;
+    }
+
+    p{
+        font-size:14px;
+    }
+
+    .container{
+        padding:40px 30px;
+        border-radius:22px;
+    }
+
+    button{
+        font-size:15px;
+        padding:12px 28px;
+        margin-top:18px;
+    }
+
+    .sectionSticker{
+        width:70px;
+        bottom:12px;
+        right:12px;
+    }
+
+    .us-grid{
+        grid-template-columns: repeat(3, 1fr);
+        gap:11px;
+        margin-top:18px;
+    }
+
+    .us-grid video{
+        height:130px;
+    }
+
+    .video-label{
+        font-size:11px;
+    }
+
+    .lyrics-box{
+        max-width:450px;
+    }
+
+    .thank-box{
+        width:90%;
+        max-width:350px;
+    }
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background: linear-gradient(-45deg,
+        #667eea,
+        #764ba2,
+        #6dd5ed,
+        #c471ed
+    );
+    background-size:400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+/* Animated gradient */
+@keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Floating blur circles */
+.circle{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    opacity:0.6;
+}
+
+.c1{
+    width:300px;
+    height:300px;
+    background:#ffffff;
+    top:-80px;
+    left:-80px;
+}
+
+.c2{
+    width:250px;
+    height:250px;
+    background:#d8cfc4;
+    bottom:-100px;
+    right:-80px;
+}
+
+/* Sections */
+section{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    scroll-snap-align:start;
+}
+
+.container{
+    width:90%;
+    max-width:700px;
+    padding:30px;
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,0.25);
+    border-radius:25px;
+    box-shadow:0 8px 32px rgba(0,0,0,0.1);
+    text-align:center;
+    animation: fadeUp 1s ease;
+    animation: fadeUp 1s ease, glow 4s ease-in-out infinite alternate;
+}
+@keyframes glow{
+    from{
+        box-shadow:0 8px 32px rgba(0,0,0,0.1);
+    }
+    to{
+        box-shadow:0 12px 40px rgba(0,0,0,0.18);
+    }
+}
+
+h1{
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:12px;
+    color:#333;
+    margin:10px 0;
+}
+
+button{
+    margin-top:25px;
+    padding:12px 28px;
+    border:none;
+    border-radius:30px;
+    background:#ffffff;
+    cursor:pointer;
+    font-size:15px;
+    transition:0.3s ease;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 6px 15px rgba(0,0,0,0.15);
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Smooth scroll */
+html{
+    scroll-behavior:smooth;
+    scroll-snap-type:y mandatory;
+    overflow-y:scroll;
+}
+/* Floating particles */
+.particles{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.particles span{
+    width:6px;
+    height:6px;
+    background:rgba(255,255,255,0.6);
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    30%{opacity:1;}
+    to{
+        transform:translateY(-10vh);
+        opacity:0;
+    }
+}
+.light{
+    position:fixed;
+    top:0;
+    left:-50%;
+    width:200%;
+    height:100%;
+    background:linear-gradient(
+        120deg,
+        transparent 30%,
+        rgba(255,255,255,0.35) 50%,
+        transparent 70%
+    );
+    animation: slideLight 10s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes slideLight{
+    from{ transform:translateX(-50%); }
+    to{ transform:translateX(50%); }
+}
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.15);
+    pointer-events:none;
+}
+/* Flower container */
+.flowers{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+/* Each flower */
+.flower{
+    position:absolute;
+    top:-50px;
+    font-size:20px;
+    animation: fall linear infinite;
+    opacity:0.8;
+}
+
+/* Falling animation */
+@keyframes fall{
+    0%{
+        transform:translateY(-10vh) translateX(0) rotate(0deg);
+        opacity:0;
+    }
+    10%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(110vh) translateX(50px) rotate(360deg);
+        opacity:0.7;
+    }
+}
+/* Petal container */
+.petals{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+/* Individual petal */
+.petal{
+    position:absolute;
+    top:-50px;
+    width:18px;
+    height:26px;
+    background: radial-gradient(circle at 30% 30%, #fff0f5, #f8b6c2);
+    border-radius: 60% 60% 60% 60% / 70% 70% 40% 40%;
+    opacity:0.8;
+    animation: fall linear infinite;
+    filter: blur(0.5px);
+}
+
+/* Falling animation */
+@keyframes fall{
+    0%{
+        transform: translateY(-10vh) translateX(0) rotate(0deg);
+        opacity:0;
+    }
+    10%{
+        opacity:0.8;
+    }
+    100%{
+        transform: translateY(110vh) translateX(80px) rotate(360deg);
+        opacity:0.6;
+    }
+}
+/* Glow layer */
+.birthday-glow{
+    position:absolute;
+    width:300px;
+    height:300px;
+    background: radial-gradient(circle,
+        rgba(255,182,193,0.6) 0%,
+        rgba(255,192,203,0.3) 40%,
+        transparent 70%);
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%) scale(0.5);
+    opacity:0;
+    pointer-events:none;
+}
+.bText{
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    filter: blur(8px);
+    transition: 
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        filter 0.8s ease;
+}
+.container{
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.heart{
+  position: fixed;
+  bottom: -30px;
+  font-size: 20px;
+  opacity: .25;
+  animation: floatUp 14s linear forwards;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes floatUp{
+  from{
+    transform: translateY(0);
+  }
+  to{
+    transform: translateY(-120vh);
+  }
+}
+#typeText{
+  animation: breathe 1s ease-in-out infinite;
+}
+
+@keyframes breathe{
+  0%,100%{ transform:scale(1); }
+  50%{ transform:scale(1.03); }
+}
+/* Popup background */
+.lyrics-popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    backdrop-filter:blur(6px);
+}
+
+/* Popup box */
+.lyrics-box{
+    width:90%;
+    max-width:500px;
+    max-height:80vh;
+    
+    padding:25px;
+    border-radius:20px;
+    color:white;
+    overflow:hidden;
+    animation: fadeUp 0.5s ease;
+}
+.lyrics-box p{
+    color:#4da6ff;
+    text-shadow:0 0 8px rgba(77,166,255,0.7);
+}
+.lyrics-box{
+    position:relative;
+    z-index:2;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(6px);
+}
+.video-bg{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:1;
+    filter:blur(1px) brightness(0.6);
+}
+
+/* Scroll lyrics area */
+.lyrics-content{
+    max-height:300px;
+    overflow-y:auto;
+    margin:15px 0;
+    font-size:14px;
+    line-height:1.6;
+}
+
+/* Buttons */
+.download-btn{
+    display:inline-block;
+    padding:10px 20px;
+    background:white;
+    color:#2193b0;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.back-btn{
+    display:block;
+    margin:10px auto 0;
+}
+.music-toast{
+    position:fixed;
+    top:25px;
+    left:50%;
+    transform:translateX(-50%) translateY(-60px) scale(0.9);
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+    color:white;
+    padding:14px 30px;
+    border-radius:40px;
+    font-size:10px;
+    letter-spacing:0.5px;
+    opacity:0;
+    z-index:9999;
+    border:1px solid rgba(255,255,255,0.4);
+    box-shadow:0 8px 25px rgba(0,0,0,0.25);
+    transition:all 0.6s cubic-bezier(.68,-0.55,.27,1.55);
+    overflow:hidden;
+}
+
+/* Glow animation */
+.music-toast::before{
+    content:"";
+    position:absolute;
+    top:-2px;
+    left:-2px;
+    right:-2px;
+    bottom:-2px;
+    background:linear-gradient(45deg,#ff9a9e,#fad0c4,#fad0c4,#ffdde1);
+    border-radius:40px;
+    z-index:-1;
+    filter:blur(8px);
+    opacity:0.7;
+    animation: glowMove 4s linear infinite;
+}
+
+@keyframes glowMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.music-toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0) scale(1);
+}
+.container{
+    position:relative; /* IMPORTANT */
+}
+
+.sectionSticker{
+    position:absolute;
+    bottom:15px;
+    right:15px;
+    width:70px;
+    animation:romanticBeat 2.5s ease-in-out infinite;
+}
+
+/* Romantic Heartbeat */
+@keyframes romanticBeat{
+    0%,100%{
+        transform:scale(1);
+        filter:drop-shadow(0 0 6px rgba(255,182,193,0.4));
+    }
+    30%{
+        transform:scale(1.12);
+        filter:drop-shadow(0 0 18px rgba(255,182,193,0.8));
+    }
+    50%{
+        transform:scale(1);
+        filter:drop-shadow(0 0 10px rgba(255,182,193,0.6));
+    }
+}
+
+/* Breathing animation */
+@keyframes breatheSticker{
+    0%,100%{ transform:scale(1); }
+    50%{ transform:scale(1.08); }
+}
+.feedback-box{
+    margin-top:20px;
+    text-align:center;
+}
+
+.question{
+    margin-bottom:10px;
+    font-size:14px;
+}
+
+.options label{
+    display:inline-block;
+    margin:10px 15px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.options input{
+    display:none;
+}
+
+.circle{
+    display:inline-block;
+    width:16px;
+    height:16px;
+    border:2px solid white;
+    border-radius:50%;
+    margin-right:6px;
+    vertical-align:middle;
+}
+
+.options input:checked + .circle{
+    background:white;
+}
+.thank-popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999999;
+    backdrop-filter:blur(8px);
+}
+
+.thank-box{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(20px);
+    padding:35px 30px;
+    border-radius:25px;
+    text-align:center;
+    color:white;
+    width:85%;
+    max-width:400px;
+    animation: popupFade 0.6s ease;
+    box-shadow:0 10px 40px rgba(0,0,0,0.3);
+}
+
+.thank-box h2{
+    margin-bottom:15px;
+    font-size:22px;
+}
+
+.thank-box p{
+    font-size:14px;
+    margin:8px 0;
+    color:white;
+}
+
+.thank-box button{
+    margin-top:20px;
+    padding:10px 25px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#764ba2;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.thank-box button:hover{
+    transform:scale(1.05);
+}
+
+@keyframes popupFade{
+    from{
+        opacity:0;
+        transform:scale(0.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+.us-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:12px;
+    margin-top:20px;
+}
+
+.us-grid video{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:15px;
+    cursor:pointer;
+}
+
+.video-box {
+    position: relative;
+    animation: videoWave 2s ease-in-out infinite;
+}
+
+.video-box:nth-child(1) { animation-delay: 0s; }
+.video-box:nth-child(2) { animation-delay: 0.15s; }
+.video-box:nth-child(3) { animation-delay: 0.3s; }
+.video-box:nth-child(4) { animation-delay: 0.45s; }
+.video-box:nth-child(5) { animation-delay: 0.6s; }
+.video-box:nth-child(6) { animation-delay: 0.75s; }
+
+@keyframes videoWave {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.video-label {
+    text-align: center;
+    font-size: 12px;
+    color: white;
+    margin-top: 3px;
+    font-weight: 500;
+}
+/* Fullscreen popup */
+.us-video-popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:black;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:999999;
+}
+
+#usMainVideo{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.us-back-btn{
+    position:absolute;
+    top:20px;
+    left:20px;
+    padding:8px 18px;
+    border:none;
+    border-radius:20px;
+    background:white;
+    cursor:pointer;
+}
+
+</style>
+</head>
+<body>
+    <div id="musicToast" class="music-toast">
+    🎧
+    <br><br>
+        
+    <strong>Unakkaga customize panna song</strong>  
+    background la play aagudhu 💗
+</div>
+    <audio id="bgMusic" loop>
+  <source src="rakshi bday song.mp3" type="audio/mpeg">
+</audio>
+    <div class="petals"></div>
+    <div class="flowers"></div>
+    
+<div class="particles"></div>
+
+
+<section id="home">
+    <div class="container">
+        <h1>A Small Corner of the Internet</h1>
+<p>I didn’t want this day to pass quietly.</p>
+<p>So I made something small. Just for you.</p>
+<button onclick="openBirthday()">Open🤌🏻</button>
+ <img src="stricker 2.png" class="sectionSticker">
+    </div>
+</section>
+
+<section id="birthday">
+    <div class="birthday-glow" id="bglow"></div>
+    
+    <div class="container">
+        
+        <h1 id="typeText"></h1></h1>
+
+<p class="bText">I hope today feels light, peaceful, and genuinely happy for you🫶🏻.</p>
+
+
+
+<p class="bText">Just a quiet wish that this year brings you moments that make you smile without effort.</p>
+
+<p class="bText">May you grow, explore, and find joy in the smallest things🫰🏻.</p>
+
+<p class="bText">I hope your days feel calm and your nights feel easy🙂‍↔️.</p>
+
+<p class="bText">Wherever life takes you, I hope it treats you kindly🤎.</p>
+
+<p class="bText">That’s all🤌🏻.</p>
+
+<p class="bText">Have a beautiful birthday ✨</p>
+<p class="bText">
+ 👉🏻 Top la iruka bday text ah fast ah click pannu👈🏻</p>
+ <img src="stricker5.png" class="sectionSticker">
+<button onclick="scrollToSection('memories')">Next ✨</button>
+    </div>
+  
+</section>
+<section id="memories">
+    <div class="container">
+       <h1>Good Times🤞🏻</h1>
+<p>There are memories that don’t fade 🌙</p>
+<p>Not because I hold onto them… 🤍</p>
+<p>But because they were real ✨</p>
+<p>Sometimes they pass through my mind quietly 💭</p>
+<p>And I just smile 🙂</p>
+<p>That’s enough for me 🫶🏻</p>
+<p>Just memory🫶🏻.</p>
+  <img src="stricker5.png" class="sectionSticker">
+  <button onclick="scrollToSection('us')">Next✨</button>
+    </div>
+</section>
+
+<section id="us">
+    <div class="container">
+        <h1>Us 🤍</h1>
+
+       <div class="us-grid">
+
+  <div class="video-box">
+    <video src="video 1.mp4" muted autoplay loop playsinline onclick="openUsVideo(this)"></video>
+    <div class="play-badge">▶</div>
+    <p class="video-label">First Meet 💕</p>
+  </div>
+
+  <div class="video-box">
+    <video src="memory-video.mp4" muted autoplay loop playsinline onclick="openUsVideo(this)"></video>
+    <div class="play-badge">▶</div>
+    <p class="video-label">First Date 🌙</p>
+  </div>
+
+  <div class="video-box">
+    <video src="memory-video.mp4" muted autoplay loop playsinline onclick="openUsVideo(this)"></video>
+    <div class="play-badge">▶</div>
+    <p class="video-label">Our Place ✨</p>
+  </div>
+
+  <div class="video-box">
+    <video src="memory-video.mp4" muted autoplay loop playsinline onclick="openUsVideo(this)"></video>
+    <div class="play-badge">▶</div>
+    <p class="video-label">Sweet Times 🤍</p>
+  </div>
+
+  <div class="video-box">
+    <video src="memory-video.mp4" muted autoplay loop playsinline onclick="openUsVideo(this)"></video>
+    <div class="play-badge">▶</div>
+    <p class="video-label">Just Us 🫶🏻</p>
+  </div>
+
+  <div class="video-box">
+    <video src="memory-video.mp4" muted autoplay loop playsinline onclick="openUsVideo(this)"></video>
+    <div class="play-badge">▶</div>
+    <p class="video-label">Forever 💗</p>
+  </div>
+
+</div>
+        <p style="text-align:center; margin-top:10px; margin-bottom:2px; font-size:13px; opacity:0.9;">Click on any video to view 🎬</p>
+        <button onclick="scrollToSection('final')">Next 🤍</button>
+    </div>
+</section>
+
+<section id="growth">
+    <div class="container">
+       <h1>After us🚻</h1>
+<p>Not everything is meant to stay forever.</p>
+<p>Some people come into our lives</p>
+<p>not to remain… but to change us.</p>
+<p>You changed something in me.</p>
+<p>And I’ll always be quietly grateful for that 🌙</p>
+<p>No bitterness. No regret.</p>
+<p>Just respect… and a soft corner that will always exist 💗</p>
+ <img src="stricker 4.png" class="sectionSticker">
+<button onclick="scrollToSection('final')">Last👀</button>
+    </div>
+</section>
+<section id="final">
+    <div class="container">
+        <h1>One Last Thing 🤍</h1>
+
+        <p>I don’t expect anything from this.</p>
+        <p>No pressure. No guilt.</p>
+        <p>Just something I wanted to say clearly.</p>
+
+        <p style="margin-top:15px;">
+        The place you once had in my heart…
+        </p>
+
+        <p>
+        I never tried to replace it.
+        </p>
+
+        <p>
+        I never wanted to.
+        </p>
+
+        <p style="margin-top:15px;">
+        If life ever brings you back this way,
+        </p>
+
+        <p>
+        that place is still yours.
+        </p>
+
+        <p>
+        Not reserved with expectation…
+        </p>
+
+        <p>
+        but kept with honesty.
+        </p>
+
+        <p style="margin-top:15px;">
+        And if you choose a different path,
+        </p>
+
+        <p>
+        I’ll still wish you nothing but happiness ✨
+        </p>
+
+        <p style="font-size:10px; opacity:0.6;">
+        Made with honesty — 04.04.2026
+        </p>
+        <div class="feedback-box">
+
+  <p class="question">🤎Are you happy for this👉🏻👈🏻 </p>
+
+  <div class="options">
+    <label>
+      <input type="radio" name="reply" value="Yes">
+      <span class="circle"></span> Yes
+    </label>
+
+    <label>
+      <input type="radio" name="reply" value="No">
+      <span class="circle"></span> No
+    </label>
+  </div>
+
+  <button id="submitReply" style="display:none;">Submit</button>
+
+</div>
+ <img src="stricker 3.png" class="sectionSticker">
+       <button id="lyricsBtn" onclick="showLyrics()" disabled>
+  See Lyrics 🎵
+</button>
+    </div>
+</section>
+<div id="lyricsPopup" class="lyrics-popup">
+<video id="lyricsVideo" autoplay muted loop playsinline class="video-bg">
+    <source src="video.mp4" type="video/mp4">
+</video>
+    <div class="lyrics-box">
+        <h2>🎵 Special Song For You</h2>
+        <div class="lyrics-content">
+            First year la start aana namma story,
+Canteen corner la neraya theory,
+Theatre seat la share pannom popcorn,
+Un sirippu dhaan enakku background tone.
+
+<br><br>
+Andha Saturday propose panna plan,
+Heart la ready aana love-u than,
+Aana words ellam freeze aayiduchu,
+Un munadi naan silent aayiduchu...[2]
+
+<br><br>
+Andha Saturday pogala marandhu,
+Aana un ninaivugal pogala en nenjuvitu,
+Six month aachu ippo pesi,
+Un memory dhaan enakku daily dose-u easy.
+
+<br><br>
+Bus stop la nikkum neram,
+Message vandha smile varum theeram,
+College corridor la nadandha footsteps,
+Indha heart la irukku full steps.
+
+<br><br>
+Second Saturday la start aana feel,
+Adhu fake illa, adhu real,
+Propose panna mudiyala naalum,
+Un mela irundhadhu marala kaadhalum.
+
+<br><br>
+Theatre lights off aana neram,
+Un kooda irundha ovvoru kaalam,
+Marakka mudiyadhu, marakka maaten,
+Un peyar sonna pothum naan siripen
+        </div>
+        <p>song oda video version unnaku na send panre</p>
+        
+
+        <button class="back-btn" onclick="goHome()">
+            ⬅ Back
+        </button>
+
+    </div>
+
+</div>
+<div id="thankPopup" class="thank-popup">
+  <div class="thank-box">
+    <h2>🤍 Thank You 🤍</h2>
+    <p>Romba thanks... idha submit panninadhukku 💌</p>
+    <p>Un reply enaku romba special ✨</p>
+    <button onclick="closeThankPopup()">Close 💗</button>
+  </div>
+</div>
+  <div id="usVideoPopup" class="us-video-popup">
+    <video id="usMainVideo" controls playsinline></video>
+    <button onclick="closeUsVideo()" class="us-back-btn">⬅ Back</button>
+</div>
+<script>
+const radios = document.querySelectorAll('input[name="reply"]');
+const submitBtn = document.getElementById("submitReply");
+const lyricsBtn = document.getElementById("lyricsBtn");
+
+radios.forEach(radio => {
+    radio.addEventListener("change", ()=>{
+        submitBtn.style.display = "inline-block";
+    });
+});
+
+submitBtn.addEventListener("click", ()=>{
+    const selected = document.querySelector('input[name="reply"]:checked').value;
+
+    sendEmail(selected);
+
+    submitBtn.innerText = "Submitted 🤍";
+    submitBtn.disabled = true;
+
+    lyricsBtn.disabled = false;
+});
+
+
+function showLyrics(){
+    document.getElementById("lyricsPopup").style.display = "flex";
+}
+
+function goHome(){
+    const music = document.getElementById("bgMusic");
+
+    // stop music
+    music.pause();
+    music.currentTime = 0;
+
+    // close popup
+    document.getElementById("lyricsPopup").style.display = "none";
+
+    // go home
+    document.getElementById("home").scrollIntoView({behavior:"smooth"});
+
+    // refresh after small delay
+    setTimeout(()=>{
+        location.reload();
+    }, 800);
+}
+
+
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 14000);
+
+}, 1500);
+
+function openBirthday(){
+    const music = document.getElementById("bgMusic");
+    const toast = document.getElementById("musicToast");
+
+    music.volume = 0.4;
+    music.play().catch(()=>{});
+
+    // Show popup
+    toast.classList.add("show");
+
+    // Scroll immediately
+    scrollToSection('birthday');
+
+    // AFTER 5 sec (popup disappear time)
+    setTimeout(()=>{
+        toast.classList.remove("show");
+
+        // Start typing only after popup gone
+        startTyping();
+
+    }, 5000);
+}
+let typedStarted = false;
+
+function startTyping(){
+    if(typedStarted) return;
+    typedStarted = true;
+
+    const text = "Happy Birthday Rakshi 💗✨";
+    let i = 0;
+
+    function typeEffect(){
+        if(i < text.length){
+            document.getElementById("typeText").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeEffect, 70);
+        } else {
+            // typing finished
+            setTimeout(fadeParagraphs, 500);
+        }
+    }
+
+    typeEffect();
+}
+
+function fadeParagraphs(){
+    const paragraphs = document.querySelectorAll(".bText");
+
+    paragraphs.forEach((p, index) => {
+        setTimeout(() => {
+            p.style.opacity = "1";
+            p.style.transform = "translateY(0) scale(1)";
+            p.style.filter = "blur(0px)";
+        }, index * 350);
+    });
+}
+const particles = document.querySelector(".particles");
+
+for(let i=0;i<25;i++){
+    let span = document.createElement("span");
+    span.style.left = Math.random()*100 + "vw";
+    span.style.animationDuration = (6 + Math.random()*6) + "s";
+    span.style.animationDelay = Math.random()*5 + "s";
+    particles.appendChild(span);
+}
+function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+const flowerContainer = document.querySelector(".flowers");
+
+const flowers = ["✨"];
+
+for(let i=0;i<10;i++){
+    let flower = document.createElement("div");
+    flower.classList.add("flower");
+    flower.innerHTML = flowers[Math.floor(Math.random()*flowers.length)];
+    
+    flower.style.left = Math.random()*100 + "vw";
+    flower.style.animationDuration = (8 + Math.random()*6) + "s";
+    flower.style.animationDelay = Math.random()*2 + "s";
+    flower.style.fontSize = (8 + Math.random()*5) + "px";
+    
+    flowerContainer.appendChild(flower);
+}
+const petalContainer = document.querySelector(".petals");
+
+for(let i=0;i<5;i++){
+    let petal = document.createElement("div");
+    petal.classList.add("petal");
+
+    petal.style.left = Math.random()*100 + "vw";
+    petal.style.animationDuration = (10 + Math.random()*3) + "s";
+    petal.style.animationDelay = Math.random()*2 + "s";
+    petal.style.transform = `rotate(${Math.random()*360}deg)`;
+    petal.style.width = (14 + Math.random()*5) + "px";
+    petal.style.height = (10 + Math.random()*12) + "px";
+
+    petalContainer.appendChild(petal);
+}
+window.addEventListener("scroll", function(){
+    document.querySelectorAll(".container").forEach((el)=>{
+        let position = el.getBoundingClientRect().top;
+        let screenHeight = window.innerHeight;
+
+        if(position < screenHeight - 100){
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+        } else {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(40px)";
+        }
+    });
+});
+document.querySelector("#birthday h1").addEventListener("click", function(){
+    for(let i=0;i<20;i++){
+        let heart = document.createElement("div");
+        heart.innerHTML ="🤎" ;
+        heart.style.position = "fixed";
+        heart.style.left = "50%";
+        heart.style.top = "50%";
+        heart.style.fontSize = "20px";
+        heart.style.transform = `translate(${Math.random()*400-200}px, ${Math.random()*400-200}px)`;
+        heart.style.transition = "1s ease-out";
+        document.body.appendChild(heart);
+
+        setTimeout(()=> heart.remove(), 1000);
+    }
+});
+document.addEventListener("visibilitychange", function() {
+    const music = document.getElementById("bgMusic");
+
+    if (document.hidden) {
+        music.pause();
+    } else {
+        music.play();
+    }
+});
+
+function sendEmail(answer){
+
+    const templateParams = {
+        message: answer,
+        name: "Birthday Site",
+        time: new Date().toLocaleString()
+    };
+
+    emailjs.send("service_895wyjg", "template_mfub1xh", templateParams)
+    .then(function(response) {
+
+        // 🔥 Hide submit button
+        document.getElementById("submitReply").disabled = true;
+
+        // 🔥 Show beautiful popup
+        document.getElementById("thankPopup").style.display = "flex";
+
+        console.log("SUCCESS", response);
+    })
+    .catch(function(error){
+        console.log("FAILED", error);
+    });
+
+}
+function closeThankPopup(){
+    document.getElementById("thankPopup").style.display = "none";
+}
+
+
+function openUsVideo(videoElement){
+
+    const popup = document.getElementById("usVideoPopup");
+    const mainVideo = document.getElementById("usMainVideo");
+    const bgMusic = document.getElementById("bgMusic");
+
+    bgMusic.pause();
+
+    popup.style.display = "flex";
+
+    mainVideo.src = videoElement.getAttribute("src");
+    mainVideo.muted = false;
+    mainVideo.play();
+}
+
+function closeUsVideo(){
+
+    const popup = document.getElementById("usVideoPopup");
+    const mainVideo = document.getElementById("usMainVideo");
+    const bgMusic = document.getElementById("bgMusic");
+
+    mainVideo.pause();
+    mainVideo.currentTime = 0;
+    popup.style.display = "none";
+
+    bgMusic.play().catch(()=>{});
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+    emailjs.init("rQmdFGmi8ykxp812s"); // <- un public key
+})();
+</script>
+</body>
+</html>
